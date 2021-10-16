@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "utils/fileio.h"
 
-TEST(FileIOTest, TestExistedFile) {
+TEST(FileIOTest, DISABLED_TestExistedFile) {
   // create a file in my own way
   FILE* f = fopen("test.dat", "wb");
   char buf[100];
@@ -47,7 +47,7 @@ typedef struct {
   char zarray[0];
 } ZARRAY;
 
-TEST(FileIOTest, TestNewFile) {
+TEST(FileIOTest, DISABLED_TestNewFile) {
   // in this test, you will learn
   // how we can use zero-length array to
   // use in memory data structure more

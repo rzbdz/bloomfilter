@@ -17,21 +17,21 @@ void test_api(BitSetPtr bits) {
   EXPECT_EQ(GetBit(bits, 999), 1);
 }
 
-TEST(BitSetTest, TestNew) {
+TEST(BitSetTest, DISABLED_TestNew) {
   char* buffer = (char*)malloc(BitSetBufferSize(1000));
   BitSetPtr bits = NewBitSet(1000, buffer);
   EXPECT_EQ(bits->length_, 1000);
   test_api(bits);
   free(buffer);
 }
-TEST(BitSetTest, TestAllocate) {
+TEST(BitSetTest, DISABLED_TestAllocate) {
   BitSetPtr bits = AllocateBitSet(1000);
   EXPECT_EQ(bits->length_, 1000);
   test_api(bits);
   free(bits);
 }
 
-TEST(BitSetTest, TestBufferSize) {
+TEST(BitSetTest, DISABLED_TestBufferSize) {
   int s = LEN_FIELD_SIZE;
   int size = BitSetBufferSize(31);
   EXPECT_EQ(size, 4 + s);
@@ -45,7 +45,7 @@ TEST(BitSetTest, TestBufferSize) {
   EXPECT_EQ(size, 4 * 27463 + s);
 }
 
-TEST(BitSetTest, TestSet1) {
+TEST(BitSetTest, DISABLED_TestSet1) {
   int size = BitSetBufferSize(31);
   char* buffer = (char*)malloc(size);
   BitSetPtr bits = NewBitSet(31, buffer);
@@ -60,7 +60,7 @@ TEST(BitSetTest, TestSet1) {
   EXPECT_EQ(*myint, 0xaaaaaaaa);
   free(buffer);
 }
-TEST(BitSetTest, TestSet2) {
+TEST(BitSetTest, DISABLED_TestSet2) {
   int size = BitSetBufferSize(1000);
   char* buffer = (char*)malloc(size);
   BitSetPtr bits = NewBitSet(1000, buffer);
@@ -80,7 +80,7 @@ TEST(BitSetTest, TestSet2) {
   }
   free(buffer);
 }
-TEST(BitSetTest, TestReadFrom) {
+TEST(BitSetTest, DISABLED_TestReadFrom) {
   int size = BitSetBufferSize(1000);
   char* buffer = (char*)malloc(size);
   memset(buffer, 0x55, size);

@@ -2,7 +2,7 @@
 #include <fstream>
 #include "filter/bloom_filter.h"
 
-TEST(FilterTest, TestOptimal) {
+TEST(FilterTest, DISABLED_TestOptimal) {
   // figure it out how to test...
   EXPECT_EQ(optimal_bitset_length(20, 0.3678, UINT32_MAX), 41UL);
   EXPECT_EQ(optimal_bitset_length(20, 0, UINT32_MAX), UINT32_MAX);
@@ -10,7 +10,7 @@ TEST(FilterTest, TestOptimal) {
   EXPECT_EQ(optimal_hash_function_count(200, 4000), (int)(20 * 0.7));
 }
 
-TEST(FilterTest, TestCreate) {
+TEST(FilterTest, DISABLED_TestCreate) {
   BloomFilterPtr p = CreateBloomFilter("test.dat", 20, 1024);
   EXPECT_EQ(p->bits_.length_, 1024);
   for (int i = 0; i < 1024; i++) {
@@ -31,7 +31,7 @@ TEST(FilterTest, TestCreate) {
   CloseBloomFilter(p);
 }
 
-TEST(FilterTest, TestInsert) {
+TEST(FilterTest, DISABLED_TestInsert) {
   BloomFilterPtr p = CreateBloomFilter(
       "test.dat", (uint)optimal_hash_function_count(724, 15 * 724), 15 * 724);
   ASSERT_EQ(p->bits_.length_, 15 * 724);
@@ -126,7 +126,7 @@ void test_scale(size_t scale) {
   remove("test.dat");
 }
 
-TEST(FilterTest, TestScale2M) {
+TEST(FilterTest, DISABLED_TestScale2M) {
   auto scale = INT32_MAX / 1000UL;
   const char* nm = "test.bff";
   test_scale_opt(nm, scale);
@@ -150,7 +150,7 @@ TEST(FilterTest, TestScale2M) {
   remove(nm);
 }
 
-TEST(FilterTest, TestScale20M) {
+TEST(FilterTest, DISABLED_TestScale20M) {
   test_scale(INT32_MAX / 100UL);
 }
 
